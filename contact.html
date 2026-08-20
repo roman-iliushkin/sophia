@@ -27,16 +27,18 @@
 
         <section>
             <h2>Interest Form</h2>
-            <form action="#" method="post">
+            <form id="interest-form" action="#" method="post" novalidate>
                 <fieldset>
                     <legend>Your Contact Information</legend>
                     <p>
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-z][A-Za-z' -]{1,49}">
+                        <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-z][A-Za-z' -]{1,49}" aria-describedby="name-feedback">
+                        <span class="field-feedback" id="name-feedback" role="alert" hidden></span>
                     </p>
                     <p>
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required aria-describedby="email-feedback">
+                        <span class="field-feedback" id="email-feedback" role="alert" hidden></span>
                     </p>
                 </fieldset>
 
@@ -44,32 +46,36 @@
                     <legend>How You Would Like to Help</legend>
                     <p>
                         <label for="interest">Interest type:</label>
-                        <select id="interest" name="interest" required>
+                        <select id="interest" name="interest" required aria-describedby="interest-feedback">
                             <option value="">Select an option</option>
                             <option value="volunteer">Volunteer</option>
                             <option value="foster">Foster</option>
                             <option value="adoption">Adoption information</option>
                         </select>
+                        <span class="field-feedback" id="interest-feedback" role="alert" hidden></span>
                     </p>
+                    <aside id="interest-summary" class="interest-summary" aria-live="polite" hidden></aside>
                     <p>
                         <label for="availability">Availability:</label>
-                        <select id="availability" name="availability" required>
+                        <select id="availability" name="availability" required aria-describedby="availability-feedback">
                             <option value="">Select an option</option>
                             <option value="weekday-mornings">Weekday mornings</option>
                             <option value="weekday-evenings">Weekday evenings</option>
                             <option value="weekends">Weekends</option>
                             <option value="flexible">Flexible</option>
                         </select>
+                        <span class="field-feedback" id="availability-feedback" role="alert" hidden></span>
                     </p>
                     <p>
                         <label for="experience">Experience with pets:</label>
-                        <select id="experience" name="experience" required>
+                        <select id="experience" name="experience" required aria-describedby="experience-feedback">
                             <option value="">Select an option</option>
                             <option value="none">No prior experience</option>
                             <option value="some">Some experience</option>
                             <option value="experienced">Experienced pet caregiver</option>
                             <option value="professional">Professional animal-care experience</option>
                         </select>
+                        <span class="field-feedback" id="experience-feedback" role="alert" hidden></span>
                     </p>
                 </fieldset>
 
@@ -77,11 +83,13 @@
                     <legend>Your Message</legend>
                     <p>
                         <label for="message">Short message:</label>
-                        <textarea id="message" name="message" rows="6" cols="50" required minlength="10" maxlength="500"></textarea>
+                        <textarea id="message" name="message" rows="6" cols="50" required minlength="10" maxlength="500" aria-describedby="message-feedback"></textarea>
+                        <span class="field-feedback" id="message-feedback" role="alert" hidden></span>
                     </p>
                 </fieldset>
 
                 <p><button type="submit">Send Interest Form</button></p>
+            <p id="form-success" class="form-success" role="status" hidden></p>
             </form>
         </section>
 
@@ -102,5 +110,6 @@
     <footer>
         <p>&copy; 2026 Twin Cities Animal Rescue. Serving pets and people across the Twin Cities community.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
